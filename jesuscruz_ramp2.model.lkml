@@ -6,13 +6,18 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
+
+### 3.5 Model Building - An Explore  that is cached for 4 hours
 explore: events {
+  persist_for: "4 hour"
   join: users {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
 }
+
+
 
 explore: inventory_items {
   join: products {
