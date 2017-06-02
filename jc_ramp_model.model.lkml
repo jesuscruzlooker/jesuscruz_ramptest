@@ -31,7 +31,6 @@ explore: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${order_items.id} ;;
     relationship: one_to_many
-    fields: [order_items.sale_price]
   }
 }
 

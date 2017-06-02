@@ -74,7 +74,7 @@ view: users {
   dimension: age_group {
     type: tier
     tiers: [10,20,30,40,50,60]
-    style: relational
+    style: interval
     sql: ${TABLE}.age ;;
   }
 }
