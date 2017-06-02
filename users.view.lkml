@@ -70,4 +70,11 @@ view: users {
     type: count
     drill_fields: [id, last_name, first_name, orders.count, user_data.count]
   }
+
+  dimension: age_group {
+    type: tier
+    tiers: [10,20,30,40,50,60]
+    style: relational
+    sql: ${TABLE}.age ;;
+  }
 }

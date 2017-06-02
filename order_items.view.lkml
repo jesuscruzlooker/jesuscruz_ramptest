@@ -62,4 +62,14 @@ view: order_items {
 
 
 
+
+  dimension: naming_string {
+    type: string
+    sql:  concat(${TABLE}.sale_price,' Sale $ <= => Order ID ', ${TABLE}.order_id) ;;
+  }
+
+
+
+
+
 }
