@@ -21,6 +21,17 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 
 explore: orders {
   sql_always_where: ${created_date} >= '2016-01-01'  AND ${status} <> 'complete';;
+  always_filter: {
+    filters: {
+      field:  status
+      value: "cancelled"
+    }
+  }
+  join: order_items {
+    type: left_outer
+    sql_on: ${order_items.order_id} = ${order_items.id} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: inventory_items {}
