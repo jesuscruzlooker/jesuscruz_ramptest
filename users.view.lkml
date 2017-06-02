@@ -77,4 +77,11 @@ view: users {
     style: interval
     sql: ${TABLE}.age ;;
   }
+
+  dimension: age_check {
+    type: yesno
+    sql:  ${TABLE}.age >= 60 ;;
+  }
+
+
 }
