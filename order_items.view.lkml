@@ -42,4 +42,24 @@ view: order_items {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
   }
+
+
+  dimension: sale_category {
+    case: {
+      when: {
+        sql: ${TABLE}.sale_price >=1 AND ${TABLE}.sale_price < 10 ;;
+        label: "Cheap as Hell"
+      }
+
+      when: {
+        sql: ${TABLE}.sale_price >= 10 AND ${TABLE}.sale_price < 30 ;;
+        label: "Pretty Good Deal"
+      }
+      else: "Overpriced!!"
+    }
+  }
+
+
+
+
 }

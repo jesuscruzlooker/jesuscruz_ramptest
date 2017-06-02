@@ -31,6 +31,7 @@ explore: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${order_items.id} ;;
     relationship: one_to_many
+    fields: [order_items.sale_price]
   }
 }
 
@@ -64,4 +65,19 @@ explore: users {
   }
 }
 
-explore: user_data {}
+explore: user_data {
+  view_label: "User Data via View Param"
+
+}
+
+explore: testing_view_name_use {
+  view_name: schema_migrations
+}
+
+explore: testing_view_name_use_2 {
+  view_name: user_data
+}
+
+explore: schema_migrations {}
+
+explore: products {}
