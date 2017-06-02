@@ -20,6 +20,12 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 
 explore: inventory_items {}
 
-explore: order_items {}
+explore: order_items {
+  join: orders {
+    type: left_outer
+    sql_on: ${orders.id} = ${order_items.order_id} ;;
+    relationship: many_to_one
+  }
 
-explore: products {}
+
+  }
