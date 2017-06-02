@@ -20,7 +20,7 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 
 
 explore: orders {
-  sql_always_where: ${created_date} >= '2016-01-01' ;;
+  sql_always_where: ${created_date} >= '2016-01-01'  AND ${status} <> 'complete';;
 }
 
 explore: inventory_items {}
