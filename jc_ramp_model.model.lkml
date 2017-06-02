@@ -18,6 +18,11 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #   }
 # }
 
+
+explore: orders {
+  sql_always_where: ${created_date} >= '2016-01-01' ;;
+}
+
 explore: inventory_items {}
 
 explore: order_items {
@@ -32,6 +37,15 @@ explore: order_items {
 
 
 explore: users {
+
+  always_filter: {
+    filters: {
+      field: id
+      value: ">=100"
+    }
+  }
+
+
   join: user_data {
     type: inner
     sql_on:  ${users.id} = ${user_data.user_id} ;;
