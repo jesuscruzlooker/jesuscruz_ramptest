@@ -23,3 +23,8 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 explore: tags {
   persist_for: "4 hours"
 }
+
+explore: acquisitions {}
+
+
+explore: companies {}
