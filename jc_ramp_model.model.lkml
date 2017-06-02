@@ -17,16 +17,3 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #     sql_on: ${users.id} = ${orders.user_id} ;;
 #   }
 # }
-
-
-
-explore: tags {
-  persist_for: "4 hours"
-}
-
-explore: acquisitions {}
-
-
-explore: companies {
-  fields: [name, number_of_employees]
-}
