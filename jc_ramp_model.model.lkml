@@ -21,12 +21,22 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 explore: inventory_items {}
 
 explore: order_items {
+  fields: [order_items*, orders*]
   join: orders {
     type: left_outer
     sql_on: ${orders.id} = ${order_items.order_id} ;;
     relationship: many_to_one
-    fields: [orders.status]
+#fields used here can only limit on the JOINED Table
+  }
   }
 
 
+explore: users {
+  join: user_data {
+    type: inner
+    sql_on:  ${users.id} = ${user_data.user_id} ;;
+    relationship: many_to_one
   }
+}
+
+explore: user_data {}
