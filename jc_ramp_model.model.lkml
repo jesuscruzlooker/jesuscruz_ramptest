@@ -25,6 +25,7 @@ explore: order_items {
     type: left_outer
     sql_on: ${orders.id} = ${order_items.order_id} ;;
     relationship: many_to_one
+    fields: [orders.status, user_id, id]
   }
 
 
