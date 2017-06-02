@@ -27,4 +27,6 @@ explore: tags {
 explore: acquisitions {}
 
 
-explore: companies {}
+explore: companies {
+  fields: [name, number_of_employees]
+}
